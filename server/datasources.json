@@ -1,1 +1,7 @@
-{}
+{
+  "quote": {
+    "name": "quote",
+    "connector": "memory",
+    "file": "quotes.json"
+  }
+}

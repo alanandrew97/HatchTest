@@ -1,0 +1,40 @@
+{
+  "name": "Quote",
+  "plural": "quotes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "_id": {
+      "type": "string",
+      "required": true,
+      "id": true
+    },
+    "brand": {
+      "type": "string"
+    },
+    "coverageType": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "extraCoveragePrice": {
+      "type": "string"
+    },
+    "yearRange": {
+      "type": [
+        "number"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
