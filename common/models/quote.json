@@ -36,5 +36,31 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {
+    "bestOptionsPerYear": {
+      "accepts": [
+        {
+          "arg": "year",
+          "type": "number",
+          "root": true,
+          "description": "Query"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "quotes",
+          "type": "array",
+          "root": true,
+          "description": "Array of best quote options per coverage."
+        }
+      ],
+      "description": "Get the best quote options per year for each coverage.",
+      "http": [
+        {
+          "path": "/bestOptionsPerYear",
+          "verb": "get"
+        }
+      ]
+    }
+  }
 }
