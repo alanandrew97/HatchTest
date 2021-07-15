@@ -27,8 +27,27 @@ module.exports = function(Quote) {
     let bestMidQuote;
     let bestHighQuote;
 
+    // Find best quotes per coverage
     quotesInYear.forEach(quote => {
       if (quote.coverageType === coverageTypes.RC) {
+        if (!bestRCQuote) {
+          bestRCQuote = quote;
+        } else if (+bestRCQuote.price > +quote.price) {
+          bestRCQuote = quote;
+        }
+      } else if (quote.coverageType === coverageTypes.LOW) {
+        if (!bestRCQuote) {
+          bestRCQuote = quote;
+        } else if (+bestRCQuote.price > +quote.price) {
+          bestRCQuote = quote;
+        }
+      } else if (quote.coverageType === coverageTypes.MID) {
+        if (!bestRCQuote) {
+          bestRCQuote = quote;
+        } else if (+bestRCQuote.price > +quote.price) {
+          bestRCQuote = quote;
+        }
+      } else if (quote.coverageType === coverageTypes.HIGH) {
         if (!bestRCQuote) {
           bestRCQuote = quote;
         } else if (+bestRCQuote.price > +quote.price) {
