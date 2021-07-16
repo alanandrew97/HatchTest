@@ -27,35 +27,43 @@ module.exports = function(Quote) {
     let bestMidQuote;
     let bestHighQuote;
 
-    // Find best quotes per coverage
+    // Find best quotes per coverage, the lowest price
     quotesInYear.forEach(quote => {
-      if (quote.coverageType === coverageTypes.RC) {
-        if (!bestRCQuote) {
+      if (quote.coverageType === coverageTypes.RC) { // Checks coverage type
+        if (!bestRCQuote) { // If there's no bestRCQuote, asign this quote
           bestRCQuote = quote;
-        } else if (+bestRCQuote.price > +quote.price) {
+        // If there's a best quote, reasign to this quote if it has lower price
+        } else if (+bestRCQuote.price.replace(',', '') > +quote.price.replace(',', '')) {
           bestRCQuote = quote;
         }
       } else if (quote.coverageType === coverageTypes.LOW) {
-        if (!bestRCQuote) {
-          bestRCQuote = quote;
-        } else if (+bestRCQuote.price > +quote.price) {
-          bestRCQuote = quote;
+        if (!bestLowQuote) {
+          bestLowQuote = quote;
+        } else if (+bestLowQuote.price.replace(',', '') > +quote.price.replace(',', '')) {
+          bestLowQuote = quote;
         }
       } else if (quote.coverageType === coverageTypes.MID) {
-        if (!bestRCQuote) {
-          bestRCQuote = quote;
-        } else if (+bestRCQuote.price > +quote.price) {
-          bestRCQuote = quote;
+        if (!bestMidQuote) {
+          bestMidQuote = quote;
+        } else if (+bestMidQuote.price.replace(',', '') > +quote.price.replace(',', '')) {
+          bestMidQuote = quote;
         }
       } else if (quote.coverageType === coverageTypes.HIGH) {
-        if (!bestRCQuote) {
-          bestRCQuote = quote;
-        } else if (+bestRCQuote.price > +quote.price) {
-          bestRCQuote = quote;
+        if (!bestHighQuote) {
+          bestHighQuote = quote;
+        } else if (+bestHighQuote.price.replace(',', '') > +quote.price.replace(',', '')) {
+          bestHighQuote = quote;
         }
       }
     });
 
-    return quotesInYear;
+    // Create the result array which contains the best quotes found for each coverage type
+    const bestQuotes = [];
+    if (bestRCQuote) bestQuotes.push(bestRCQuote);
+    if (bestLowQuote) bestQuotes.push(bestLowQuote);
+    if (bestMidQuote) bestQuotes.push(bestMidQuote);
+    if (bestHighQuote) bestQuotes.push(bestHighQuote);
+
+    return bestQuotes;
   }
 };

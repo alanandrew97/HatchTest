@@ -43,7 +43,7 @@
           "arg": "year",
           "type": "number",
           "root": true,
-          "description": "Query"
+          "description": "Year to filter"
         }
       ],
       "returns": [
