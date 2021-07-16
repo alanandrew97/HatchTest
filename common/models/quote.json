@@ -61,6 +61,43 @@
           "verb": "get"
         }
       ]
+    },
+    "quoteCar": {
+      "accepts": [
+        {
+          "arg": "brand",
+          "type": "text",
+          "root": true,
+          "description": "Car brand"
+        },
+        {
+          "arg": "year",
+          "type": "number",
+          "root": true,
+          "description": "Year to quote"
+        },
+        {
+          "arg": "hasAC",
+          "type": "boolean",
+          "root": true,
+          "description": "If car has air conditioner"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "quotes",
+          "type": "array",
+          "root": true,
+          "description": "Array of best quote options per coverage for a given car brand and year."
+        }
+      ],
+      "description": "Get the best quote options per year and car brand for each coverage.",
+      "http": [
+        {
+          "path": "/quoteCar",
+          "verb": "get"
+        }
+      ]
     }
   }
 }
